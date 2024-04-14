@@ -1,0 +1,16 @@
+//Sum of Left Leaves//
+class Solution {
+public:
+     int solve(TreeNode*curr,bool isleft){
+     if (curr==NULL){
+          return 0;
+     }if(curr->left==NULL&&curr->right==NULL && isleft==true){
+        return curr->val;
+     }
+     return solve (curr->left,true)+solve(curr->right,false);
+     }
+
+    int sumOfLeftLeaves(TreeNode* root) {
+        return solve (root,false);
+    }
+};
